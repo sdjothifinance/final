@@ -116,7 +116,7 @@ console.log(amount);
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["","Id","Name", "Mobile", "Amount", "Installment", "city","Action"].map(
+                {["","Id","Name", "Mobile", "Amount", "Installment", "center","Action"].map(
                   (el) => (
                     <th
                       key={el}
@@ -142,8 +142,9 @@ console.log(amount);
                       : "border-b border-blue-gray-50"
                   }`;
                   let docToSelect=collections.find(ele=>{
-                    const formattedDateString = moment(ele.date, 'D/M/YYYY').format('M/D/YYYY');
-                    return formattedDateString==`${new Date().toLocaleDateString()}`})
+//                     const formattedDateString = moment(ele.date, 'D/M/YYYY').format('M/D/YYYY');
+                    console.log(ele.date)
+                    return ele.date==`${new Date().toLocaleDateString()}`})
 
                   return (
                     <tr key={name}>
