@@ -133,7 +133,7 @@ bb[0]=bb[1];
 bb[1]=temp;
 bbb=bb.join("/");
 setd(bbb);
-
+console.log(bbb);
  })
 
  const hh=(a)=>{
