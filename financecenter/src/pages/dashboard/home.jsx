@@ -53,7 +53,7 @@ export function Home() {
     year: 'numeric',
   };
   useEffect(() => {
-    const intervalId = setInterval(async() => {
+    async function updates() {
     await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/getpaidlist",{date:new Date(Date.now()).toLocaleDateString()})
      .then(res=>{
       setval1(res.data.totalAmount)})
@@ -66,8 +66,8 @@ export function Home() {
      .then(res=>setval5(res.data.wallet))
     await  axios.post("https://impossible-gold-shoulder-pads.cyclic.app/todayuser",{date:new Date(Date.now()).toLocaleDateString()})
      .then(res=>setval3(res.data.todayuser))
-    }, 2000);
-    return () => clearInterval(intervalId);
+    }
+   updates();
   }, []);
 
   return (
