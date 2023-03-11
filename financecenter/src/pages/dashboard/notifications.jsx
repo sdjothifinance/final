@@ -151,7 +151,7 @@ const navigate=useNavigate();
                           variant="small"
                           className="text-xs font-medium text-blue-gray-600"
                         >
-                          {city}
+                          {center}
                         </Typography>
                       </td>
                       <td className={className}>
