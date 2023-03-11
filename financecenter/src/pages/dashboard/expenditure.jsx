@@ -66,7 +66,7 @@ export function Expenditure() {
     </div>
   </div>
   <div className="w-97 mb-3">
-      <Textarea label="Description" name="decription" onChange={handleChange}/>
+      <Textarea label="Description" name="decription" value={details.description} onChange={handleChange}/>
     </div>
   <Button variant="gradient" fullWidth onClick={submit} >
               Submit
