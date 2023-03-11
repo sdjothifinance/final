@@ -1,0 +1,96 @@
+POST http://localhost:3000/user/login 
+Content-Type: application/json
+
+{
+    "userId":"MCC001",
+    "phone":"9788398923"
+}
+
+###
+
+POST http://localhost:3000/admin/storeuser 
+Content-Type: application/json
+
+{
+    "name":"dewin",
+    "userId":"MCC002",
+    "phone":"9788398924",
+    "amount":10000,
+    "weeks":25,
+    "startDate":"2023-2-26"
+}
+###
+POST http://localhost:3000/superadmin/storeadmin
+Content-Type: application/json
+
+{
+    "name":"poonesh",
+    "email":"poonesh@gmail.com",
+    "phone":"9788398924",
+    "password":"ramar"
+}
+
+###
+POST https://impossible-gold-shoulder-pads.cyclic.app/admin/login 
+Content-Type: application/json
+
+{
+    "email":"poonesh@gmail.com",
+    "pwd":"ramar"
+}
+###
+POST http://localhost:3000/admin/getallusers 
+
+###
+PUT http://localhost:3000/admin/updatestatus
+Content-Type: application/json
+
+{
+    "userId":"MCC001",
+    "s_no":"04",
+    "collectionerName":"poonesh"
+}
+
+###
+
+GET  https://impossible-gold-shoulder-pads.cyclic.app/getallusers
+
+###
+POST https://impossible-gold-shoulder-pads.cyclic.app/addcollector
+Content-Type: application/json
+
+{
+    "name":"muniyappan",
+    "phone":"676378627",
+    "password":"munis"
+}
+
+###
+POST https://impossible-gold-shoulder-pads.cyclic.app/login
+Content-Type: application/json
+
+{
+    "user":"DJF0001s",
+    "pwd":"2574652625j"
+}
+
+
+###
+POST https://impossible-gold-shoulder-pads.cyclic.app/getpaidlist
+Content-Type: application/json
+
+{
+    "date":"4/3/2023"
+}
+
+
+###
+POST https://impossible-gold-shoulder-pads.cyclic.app/getpaidlist2
+Content-Type: application/json
+
+{
+    "type":"Collection report",
+    "fromdate":"4/3/2023",
+    "enddate": "4/3/2023",
+}
+
