@@ -127,11 +127,11 @@ let amt=0;
 
  useEffect(()=>{
   bbb=new Date(filter.fromdate).toLocaleDateString();
-const bb = bbb.split("/");
-let temp=bb[0];
-bb[0]=bb[1];
-bb[1]=temp;
-bbb=bb.join("/");
+// const bb = bbb.split("/");
+// let temp=bb[0];
+// bb[0]=bb[1];
+// bb[1]=temp;
+// bbb=bb.join("/");
 setd(bbb);
 console.log(bbb);
  })
