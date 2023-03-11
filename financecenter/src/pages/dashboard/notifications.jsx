@@ -70,7 +70,7 @@ const navigate=useNavigate();
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["Id","Name", "Mobile", "Amount", "Installment", "city","Action"].map(
+                {["Id","Name", "Mobile", "Amount", "Installment", "center","Action"].map(
                   (el) => (
                     <th
                       key={el}
@@ -89,7 +89,7 @@ const navigate=useNavigate();
             </thead>
             <tbody>
               {filteredUsers.map(
-                ({ userId,name,phone,amount,weeks,city,collections }, key) => {
+                ({ userId,name,phone,amount,weeks,center,collections }, key) => {
                   const className = `py-3 px-5 ${
                     key === projectsTableData.length - 1
                       ? ""
