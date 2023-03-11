@@ -29,7 +29,7 @@ import { useState } from "react";
   
   export function Newuser() {
 
-    const[details,setDetails]=useState({userId:" ",name:"",amount:0,center:"",weeks:0,startDate:"",savings:0,phone:0});
+    const[details,setDetails]=useState({userId:"",name:"",amount:0,center:"",weeks:0,startDate:"",savings:0,phone:0});
 
     const handleChange=(evnt)=>{  
         const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
