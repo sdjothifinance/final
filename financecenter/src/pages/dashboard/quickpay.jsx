@@ -144,7 +144,17 @@ console.log(amount);
                   let docToSelect=collections.find(ele=>{
 //                     const formattedDateString = moment(ele.date, 'D/M/YYYY').format('M/D/YYYY');
                     console.log(ele.date)
-                    return ele.date==`${new Date().toLocaleDateString()}`})
+                    const date = new Date(Date.now());
+
+                  // format the date string in mm-dd-yyyy format
+                      const formattedDate = date.toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: 'numeric'
+                      }).replace(/\//g, '/');
+                      const mydate2 = formattedDate.charAt(3)=='0' ? formattedDate.slice(0,3)+formattedDate.slice(4) : formattedDate;
+                      const mydate = mydate2.charAt(0)=='0' ? mydate2.slice(1) : mydate2;
+                    return ele.date==mydate})
 
                   return (
                     <tr key={name}>
