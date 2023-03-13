@@ -52,19 +52,32 @@ export function Home() {
     month: 'numeric',
     year: 'numeric',
   };
+  
+
+const date = new Date(Date.now());
+
+// format the date string in mm-dd-yyyy format
+    const formattedDate = date.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, '/');
+    const mydate2 = formattedDate.charAt(3)=='0' ? formattedDate.slice(0,3)+formattedDate.slice(4) : formattedDate;
+    const mydate = mydate2.charAt(0)=='0' ? mydate2.slice(1) : mydate2;
+  
   useEffect(() => {
     async function updates() {
-    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/getpaidlist",{date:new Date(Date.now()).toLocaleDateString()})
+    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/getpaidlist",{date:mydate})
      .then(res=>{
       setval1(res.data.totalAmount)})
-    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/getexpenditureamd",{date:new Date(Date.now()).toLocaleDateString()})
+    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/getexpenditureamd",{date:mydate})
       .then(res=>{
        setval4(res.data.totalAmount)})
-    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/todaysale",{date:new Date(Date.now()).toLocaleDateString()})
+    await axios.post("https://impossible-gold-shoulder-pads.cyclic.app/todaysale",{date:mydate})
      .then(res=>setval2(res.data.ts))
     await axios.get("https://impossible-gold-shoulder-pads.cyclic.app/wallet",{})
      .then(res=>setval5(res.data.wallet))
-    await  axios.post("https://impossible-gold-shoulder-pads.cyclic.app/todayuser",{date:new Date(Date.now()).toLocaleDateString()})
+    await  axios.post("https://impossible-gold-shoulder-pads.cyclic.app/todayuser",{date:mydate})
      .then(res=>setval3(res.data.todayuser))
     }
    updates();
