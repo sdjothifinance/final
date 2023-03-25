@@ -16,7 +16,7 @@ export function Footer({ brandName, brandLink, routes }) {
             target="_blank"
             className="transition-colors hover:text-blue-500"
           >
-            Sri Deiva Jothi Finance Center
+            Triak
           </a>{" "}
           for a better web.
         </Typography>
