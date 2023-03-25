@@ -23,8 +23,20 @@ import {
 import { Link } from "react-router-dom";
 import { ProfileInfoCard, MessageCard } from "../../widgets/cards";
 import { platformSettingsData, conversationsData, projectsData } from "../../data";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 export function Profile() {
+  const [details,setDetails]=useState([{address:"sgd",name:"sdg",phone:"345"}]);
+useEffect(()=>{
+ const  bb=async()=>{
+   await axios.get("https://impossible-gold-shoulder-pads.cyclic.app/getprofile",{})
+    .then(res=>setDetails(res.data))
+    .catch();
+  }
+  bb();
+  bb();
+  console.log(details);
+},[]);
 const navigate=useNavigate();
 
   
@@ -54,17 +66,17 @@ const navigate=useNavigate();
           </div>
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-2">
            
-            <ProfileInfoCard
+           <ProfileInfoCard
               title="Profile Information"
-              description="No 5 ,jeeva nagar west ,kattabomman Nagar, sethur mettupatti,rajapalayam taluk, virudhunagar district, tamilnadu-626121."
+              description={details[0].address}
               details={{
-                "first name": "Mr.Ragavan",
-                mobile: "+91 8220224678",
+                "Name": `${details[0].name}`,
+                mobile: `${details[0].phone}`,
                 email: "sdjothifinance@gmail.com",
                 location: "India",
                 website: "www.sdjothifinance.com"
               }}
-               action={
+              action={
                 <Tooltip content="Edit Profile" >
                   <PencilIcon className="h-4 w-4 cursor-pointer text-blue-gray-500" onClick={e=>navigate('/auth/editprofile')}/>
                 </Tooltip>
