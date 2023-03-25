@@ -12,6 +12,7 @@ import {
   Tooltip,
   Button,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png'
 import {
   HomeIcon,
@@ -24,6 +25,7 @@ import { ProfileInfoCard, MessageCard } from "../../widgets/cards";
 import { platformSettingsData, conversationsData, projectsData } from "../../data";
 
 export function Profile() {
+const navigate=useNavigate();
 
   
   return (
@@ -62,11 +64,11 @@ export function Profile() {
                 location: "India",
                 website: "www.sdjothifinance.com"
               }}
-              // action={
-              //   <Tooltip content="Edit Profile">
-              //     <PencilIcon className="h-4 w-4 cursor-pointer text-blue-gray-500"/>
-              //   </Tooltip>
-              // }
+               action={
+                <Tooltip content="Edit Profile" >
+                  <PencilIcon className="h-4 w-4 cursor-pointer text-blue-gray-500" onClick={e=>navigate('/auth/editprofile')}/>
+                </Tooltip>
+              }
             />
             <div className="grid-cols-2">
               <Typography variant="h6" color="blue-gray" className="mb-3">
