@@ -6,6 +6,8 @@ import { SignIn,SignUp } from "./pages/auth";
 import { userContext } from "./context/usermodel";
 import { whoContext } from "./context/whocontext";
 import { Quickpay } from "./pages/dashboard/quickpay";
+import {Editprofile} from "./pages/auth/editprofile"
+
 
 function App() {
   const[person,setperson]=useState(JSON.parse(sessionStorage.getItem('user')));
@@ -18,6 +20,7 @@ function App() {
       <Route path="/dashboard/*" element={<Dashboard />} />
       <Route path="/auth/sign-up" element={<SignUp />} />
       <Route path="/auth/sign-in" element={<SignIn />} />
+      <Route path="/auth/editprofile" element={<Editprofile/>}/>
       <Route path="/dashboard/quickpay" element={<Quickpay/>}/>
       <Route path="/dashboard/book" element={<Book/>}/>
       <Route path="*" element={<Navigate to="/auth/sign-in" replace />} />
