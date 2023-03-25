@@ -165,7 +165,7 @@ import { useState } from "react";
    
     </div>
   </div>
- {details.name!=""?<><Button><PDFDownloadLink document={<Receipt amd={details} />} fileName="somename.pdf">
+ {details.name!=""?<><Button className="m-4"><PDFDownloadLink document={<Receipt amd={details} />} fileName="somename.pdf">
   {({ blob, url, loading, error }) =>
     loading ? 'Loading document...' : 'Download now!'
   }
