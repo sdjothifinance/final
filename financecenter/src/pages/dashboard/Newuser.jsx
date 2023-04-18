@@ -30,18 +30,17 @@ import { useState } from "react";
   export function Newuser() {
 
     const[details,setDetails]=useState({userId:"",name:"",amount:0,center:"",weeks:0,startDate:"",savings:0,phone:0});
-    const [pdfdata,setPdfdata] = useState({userId:" ",name:"",amount:0,center:"",weeks:0,startDate:"",savings:0,phone:0})
     
     const handleChange=(evnt)=>{  
         const newInput = (data)=>({...data, [evnt.target.name]:evnt.target.value})
       setDetails(newInput)
-        const newInput1 = (data)=>
-          {
-            return evnt.target.name === 'startDate' ?
-            ({...data, [evnt.target.name]:new Date().toISOString().substr(0, 10)})
-            : ({...data, [evnt.target.name]:evnt.target.value})
-          }
-      setPdfdata(newInput1)
+//         const newInput1 = (data)=>
+//           {
+//             return evnt.target.name === 'startDate' ?
+//             ({...data, [evnt.target.name]:new Date().toISOString().substr(0, 10)})
+//             : ({...data, [evnt.target.name]:evnt.target.value})
+//           }
+//       setPdfdata(newInput1)
 //       console.log(details);
     }
 
@@ -173,7 +172,7 @@ import { useState } from "react";
    
     </div>
   </div>
- {details.name!=""?<><Button className="m-4"><PDFDownloadLink document={<Receipt amd={pdfdata} />} fileName="somename.pdf">
+ {details.name!=""?<><Button className="m-4"><PDFDownloadLink document={<Receipt amd={({...details,startDate:new Date().toISOString().substr(0, 10)})} />} fileName="User.pdf">
   {({ blob, url, loading, error }) =>
     loading ? 'Loading document...' : 'Download now!'
   }
